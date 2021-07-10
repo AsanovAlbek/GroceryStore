@@ -1,7 +1,7 @@
-package com.company;
+package com.company.models;
 
 public class Person {
-    priv ate long id;
+    private long id;
     private String name;
     private int age;
 

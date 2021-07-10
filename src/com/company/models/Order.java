@@ -1,4 +1,4 @@
-package GroceryStore.model;
+package com.company.models;
 
 public class Order {
     private long id;

@@ -1,4 +1,4 @@
-package GroceryStore.model;
+package com.company.models;
 
 public enum ProductType {
     MilkProducts, //Молочные продукты
