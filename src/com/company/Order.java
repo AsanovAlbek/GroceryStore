@@ -14,6 +14,7 @@ public class Order {
     }
 
     public long getId() {
+
         return id;
     }
 
@@ -22,6 +23,7 @@ public class Order {
     }
 
     public long getBuyersId() {
+
         return buyersId;
     }
 

@@ -1,7 +1,7 @@
 package com.company;
 
 public class Person {
-    private long id;
+    priv ate long id;
     private String name;
     private int age;
 
