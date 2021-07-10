@@ -1,10 +1,12 @@
 package com.company;
 
-import GroceryStore.model.Buyers;
-import GroceryStore.model.ProductType;
-import GroceryStore.model.Sellers;
-import GroceryStore.model.Products;
-import GroceryStore.model.Order;
+import com.company.models.Buyers;
+import com.company.models.ProductType;
+import com.company.models.Sellers;
+import com.company.models.Products;
+import com.company.models.Order;
+
+import java.util.ArrayList;
 
 public class Main {
 
@@ -14,10 +16,11 @@ public class Main {
     static ArrayList<Order> order = new ArrayList<>();
 
     public static void main(String[] args) {
-
+        System.out.print("hh");
     }
 
-    static void Initial{
+    public static void Initial
+        {
         //Продавцы
         seller.add(new Sellers(1, "Артур", 30));
         seller.add(new Sellers(2, "Зина", 64));
@@ -56,11 +59,11 @@ public class Main {
         product.add(new Products(15, "Колбаса Докторская", "ООО не повезло доктору", 109.99, ProductType.Meat);
 
         //Рыба
-        product.add(new Products(16, "Селёдка", "Домик Рыбака", 75, ProductType.Fish);
-        product.add(new Products(17, "Карп", "Домик Рыбака", 250, ProductType.Fish);
-        product.add(new Products(18, "Вобла", "ООО Фишер", 200, ProductType.Fish);
-        product.add(new Products(19, "Икра Чёрная", "ООО Фишер", 190, ProductType.Fish);
-        product.add(new Products(20, "Икра Красная", "ООО Фишер", 230, ProductType.Fish);
+        product.add(new Products(16, "Селёдка", "Домик Рыбака", 75, ProductType.fish);
+        product.add(new Products(17, "Карп", "Домик Рыбака", 250, ProductType.fish);
+        product.add(new Products(18, "Вобла", "ООО Фишер", 200, ProductType.fish);
+        product.add(new Products(19, "Икра Чёрная", "ООО Фишер", 190, ProductType.fish);
+        product.add(new Products(20, "Икра Красная", "ООО Фишер", 230, ProductType.fish);
 
         //Овощи
         product.add(new Products(21, "Картошка (кг)", "ООО Всё Своё", 40, ProductType.Vegetables));
