@@ -16,7 +16,7 @@ public class Main {
     static ArrayList<Order> order = new ArrayList<>();
 
     public static void main(String[] args) {
-        System.out.print("hh");
+        System.out.print("Заглушка");
     }
 
     public static void Initial()
