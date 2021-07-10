@@ -19,7 +19,7 @@ public class Main {
         System.out.print("hh");
     }
 
-    public static void Initial
+    public static void Initial()
         {
         //Продавцы
         seller.add(new Sellers(1, "Артур", 30));
@@ -28,12 +28,12 @@ public class Main {
 
         //Покупатели
         buyer.add(new Buyers(1, "Паша", 14));
-        buyer.add(new Buyers(1, "Вера", 18));
-        buyer.add(new Buyers(1, "Варя", 19));
-        buyer.add(new Buyers(1, "Олег", 25));
-        buyer.add(new Buyers(1, "Семён", 33));
-        buyer.add(new Buyers(1, "Руслан", 20));
-        buyer.add(new Buyers(1, "Катя", 16));
+        buyer.add(new Buyers(2, "Вера", 18));
+        buyer.add(new Buyers(3, "Варя", 19));
+        buyer.add(new Buyers(4, "Олег", 25));
+        buyer.add(new Buyers(5, "Семён", 33));
+        buyer.add(new Buyers(6, "Руслан", 20));
+        buyer.add(new Buyers(7, "Катя", 16));
 
         //Продукты
 
@@ -52,18 +52,18 @@ public class Main {
         product.add(new Products(10, "Красный Мак (кг)", "ООО Наше", 159.99, ProductType.DessertsAndSweet));
 
         //Мясо
-        product.add(new Products(11, "Сосиски Халяль", "Райан", 95.5, ProductType.Meat);
-        product.add(new Products(12, "Пельмени Халяль", "Райан", 114.5, ProductType.Meat);
-        product.add(new Products(13, "Фарш (кг)", "ООО Джед", 300, ProductType.Meat);
-        product.add(new Products(14, "Яица", "ООО Джед (10 шт)", 70, ProductType.Meat);
-        product.add(new Products(15, "Колбаса Докторская", "ООО не повезло доктору", 109.99, ProductType.Meat);
+        product.add(new Products(11, "Сосиски Халяль", "Райан", 95.5, ProductType.Meat));
+        product.add(new Products(12, "Пельмени Халяль", "Райан", 114.5, ProductType.Meat));
+        product.add(new Products(13, "Фарш (кг)", "ООО Джед", 300, ProductType.Meat));
+        product.add(new Products(14, "Яица", "ООО Джед (10 шт)", 70, ProductType.Meat));
+        product.add(new Products(15, "Колбаса Докторская", "ООО не повезло доктору", 109.99, ProductType.Meat));
 
         //Рыба
-        product.add(new Products(16, "Селёдка", "Домик Рыбака", 75, ProductType.fish);
-        product.add(new Products(17, "Карп", "Домик Рыбака", 250, ProductType.fish);
-        product.add(new Products(18, "Вобла", "ООО Фишер", 200, ProductType.fish);
-        product.add(new Products(19, "Икра Чёрная", "ООО Фишер", 190, ProductType.fish);
-        product.add(new Products(20, "Икра Красная", "ООО Фишер", 230, ProductType.fish);
+        product.add(new Products(16, "Селёдка", "Домик Рыбака", 75, ProductType.fish));
+        product.add(new Products(17, "Карп", "Домик Рыбака", 250, ProductType.fish));
+        product.add(new Products(18, "Вобла", "ООО Фишер", 200, ProductType.fish));
+        product.add(new Products(19, "Икра Чёрная", "ООО Фишер", 190, ProductType.fish));
+        product.add(new Products(20, "Икра Красная", "ООО Фишер", 230, ProductType.fish));
 
         //Овощи
         product.add(new Products(21, "Картошка (кг)", "ООО Всё Своё", 40, ProductType.Vegetables));
@@ -99,5 +99,14 @@ public class Main {
         product.add(new Products(43, "Коньяк", "ООО Ценитель", 2799.9, ProductType.Alcohol));
         product.add(new Products(44, "Чача", "ООО Алкаш", 999.9, ProductType.Alcohol));
         product.add(new Products(45, "Виски", "Propper Twelve", 6799.9, ProductType.Alcohol));
+
+        //Покупки
+            order.add(new Order(1, 1, 1, new long[]{1,5,7,9}));
+            order.add(new Order(2, 2 , 1, new long[]{14, 8, 29, 3, 19}));
+            order.add(new Order(3, 5 , 2, new long[]{45, 36, 19, 20}));
+            order.add(new Order(4, 7 , 3, new long[]{43, 40, 16}));
+            order.add(new Order(5, 3 , 3, new long[]{4, 8, 22}));
+            order.add(new Order(6, 4 , 1, new long[]{44, 38, 18, 33}));
+            order.add(new Order(7, 6 , 2, new long[]{11, 22, 33, 44}));
     }
 }
