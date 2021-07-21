@@ -1,6 +1,6 @@
 package com.company.models;
 
-public class Person {
+public abstract class Person {
     private long id;
     private String name;
     private int age;

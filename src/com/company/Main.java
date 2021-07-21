@@ -1,12 +1,9 @@
 package com.company;
 
-import com.company.models.Buyers;
-import com.company.models.ProductType;
-import com.company.models.Sellers;
-import com.company.models.Products;
-import com.company.models.Order;
+import com.company.models.*;
 
-import java.util.ArrayList;
+import java.util.ArrayList;         //Для использования списков
+import java.util.Scanner;           //Для использования ввода
 
 public class Main {
 
@@ -16,10 +13,142 @@ public class Main {
     static ArrayList<Order> order = new ArrayList<>();
 
     public static void main(String[] args) {
-        System.out.print("Заглушка");
+        Scanner in = new Scanner(System.in);
+        Initial();
+        //Проверка функции CountOfProductsInAllOrders()
+        int count = CountOfProductsInAllOrders();
+        System.out.println("count = " + count);
+
+        double price = PriceOfProductsInAllOrders();
+        System.out.println("price = " + price);
     }
 
-    public static void Initial()
+    /**
+     *  Нахождение продукта по id
+     * @param id - задаваемое функции значение, которое она должна найти
+     * @return - результат функции - найденый по этому id продукт
+     */
+    public static Products getProductId(long id)
+    {
+           Products current = null;
+           for (Products found : product)
+           {
+               if (found.getId() == id)
+               {
+                   current = found;
+                   break;
+               }
+           }
+           return current;
+    }
+
+    //Подсчёт купленных товаров во всех покупках
+    public static int CountOfProductsInAllOrders(){
+        int count = 0;
+        for (Order order1 : order){
+            count += order1.getProducts().length;
+        }
+        return count;
+    }
+
+    public static double PriceOfProductsInAllOrders()
+    {
+        double price = 0;
+        for (Order order1: order)
+        {
+            price += PriceOfProductsInOneOrder(order1);
+        }
+        return price;
+    }
+
+    public static double PriceForOneProductType(Order order1, ProductType type){
+        double price = 0;
+        for (long productId: order1.getProducts()){
+            Products products = getProductId(productId);
+            if (products != null && products.getType() == type)
+                price += products.getPrice();
+        }
+        return price;
+    }
+
+    //Функция для нахождения количества и цены всех продуктов определённого вида продуктов
+    public static ArrayList<ProductAdditional> CountAndPriceOfProductsByProductType() {
+        ArrayList<ProductAdditional> result = new ArrayList<>();
+        int countMilkProducts = 0, countDessertsAndSweet = 0, countMeat = 0,
+                countFish = 0, countVegetables = 0, countFruits = 0, countCereals = 0,
+                    countSoftDrinks = 0, countAlcohol = 0;
+
+        double priceMilkProducts = 0, priceDessertsAndSweet = 0, priceMeat = 0,
+                priceFish = 0, priceVegetables = 0, priceFruits = 0, priceCereals = 0,
+                priceSoftDrinks = 0, priceAlcohol = 0;
+
+        for (Order order1 : order) {
+            countMilkProducts += CountForOneProductType(order1, ProductType.MilkProducts);
+            countDessertsAndSweet += CountForOneProductType(order1, ProductType.DessertsAndSweet);
+            countMeat += CountForOneProductType(order1, ProductType.Meat);
+            countFish += CountForOneProductType(order1, ProductType.fish);
+            countVegetables += CountForOneProductType(order1, ProductType.Vegetables);
+            countFruits += CountForOneProductType(order1, ProductType.Fruits);
+            countCereals += CountForOneProductType(order1, ProductType.Cereals);
+            countSoftDrinks += CountForOneProductType(order1, ProductType.SoftDrinks);
+            countAlcohol += CountForOneProductType(order1, ProductType.Alcohol);
+
+            priceMilkProducts += PriceForOneProductType(order1, ProductType.MilkProducts);
+            priceDessertsAndSweet += PriceForOneProductType(order1, ProductType.DessertsAndSweet);
+            priceMeat += PriceForOneProductType(order1, ProductType.Meat);
+            priceFish += PriceForOneProductType(order1, ProductType.fish);
+            priceVegetables += PriceForOneProductType(order1, ProductType.Vegetables);
+            priceFruits += PriceForOneProductType(order1, ProductType.Fruits);
+            priceCereals += PriceForOneProductType(order1, ProductType.Cereals);
+            priceSoftDrinks += PriceForOneProductType(order1, ProductType.SoftDrinks);
+            priceAlcohol += PriceForOneProductType(order1, ProductType.Alcohol);
+        }
+
+        result.add(new ProductAdditional(ProductType.MilkProducts, countMilkProducts, priceMilkProducts));
+        result.add(new ProductAdditional(ProductType.DessertsAndSweet, countDessertsAndSweet, priceDessertsAndSweet));
+        result.add(new ProductAdditional(ProductType.Meat, countMeat, priceMeat));
+        result.add(new ProductAdditional(ProductType.fish, countFish, priceFish));
+        result.add(new ProductAdditional(ProductType.Vegetables, countVegetables, priceVegetables));
+        result.add(new ProductAdditional(ProductType.Fruits, countFruits, priceFruits));
+        result.add(new ProductAdditional(ProductType.Cereals, countCereals, priceCereals));
+        result.add(new ProductAdditional(ProductType.SoftDrinks, countSoftDrinks, priceSoftDrinks));
+        result.add(new ProductAdditional(ProductType.Alcohol, countAlcohol, priceAlcohol));
+
+        return  result;
+    }
+
+    /**
+     * Функция для нахождения общей стоимости заказа
+     * @param order1 Заказ, по которому ищется общая цена
+     * @return Найденная стоимость заказа
+     */
+    public static double PriceOfProductsInOneOrder(Order order1){
+        double price = 0;
+        for (long productId: order1.getProducts()){
+            Products products = getProductId(productId);
+            if (products != null)
+                price += products.getPrice();
+        }
+        return price;
+    }
+
+    /**
+     *
+     * @param order1    Заказ по которому находится общая цена
+     * @param type      Категория продукта
+     * @return          Количество продуктов указанной категории
+     */
+    public static int CountForOneProductType(Order order1, ProductType type){
+        int count = 0;
+        for (long productId: order1.getProducts()){
+            Products products = getProductId(productId);
+            if (products != null && products.getType() == type)
+                count++;
+        }
+        return count;
+    }
+
+        public static void Initial()
         {
         //Продавцы
         seller.add(new Sellers(1, "Артур", 30));

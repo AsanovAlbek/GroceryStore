@@ -13,6 +13,11 @@ public class Order {
         this.products = products;
     }
 
+    public Order()
+    {
+
+    }
+
     public long getId() {
 
         return id;

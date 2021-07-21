@@ -15,6 +15,11 @@ public class Products {
         this.type = type;
     }
 
+    public Products()
+    {
+        //Пустой конструктор для выделения памяти под переменные
+    }
+
     public long getId() {
         return id;
     }
