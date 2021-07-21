@@ -21,6 +21,18 @@ public class Main {
 
         double price = PriceOfProductsInAllOrders();
         System.out.println("price = " + price);
+
+        ArrayList<ProductAdditional> soldProductsCountAndPrice = CountAndPriceOfProductsByProductType();
+
+        String soldProductsStr = "Продуктов типа %s было продано %d штук общей стоимостью %f рублей.";
+
+        for (ProductAdditional productAdditional : soldProductsCountAndPrice){
+            double price1 = soldProductsCountAndPrice.get(productAdditional.getType());
+            System.out.println(
+                    String.format(
+                            soldProductsStr, productAdditional.getType().name(),
+                                                     productAdditional.getCount(), price));
+        }
     }
 
     /**
