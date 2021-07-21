@@ -71,7 +71,7 @@ public class Main {
         return price;
     }
 
-    //Функция для нахождения количества и цены всех продуктов определённого вида продуктов
+    //Функция для нахождения количества и цены всех продуктов определённого вида
     public static ArrayList<ProductAdditional> CountAndPriceOfProductsByProductType() {
         ArrayList<ProductAdditional> result = new ArrayList<>();
         int countMilkProducts = 0, countDessertsAndSweet = 0, countMeat = 0,
