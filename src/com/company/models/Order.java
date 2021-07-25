@@ -2,11 +2,12 @@ package com.company.models;
 
 public class Order {
     private long id;
-    private long buyersId;
-    private long sellersId;
-    private long[] products;
+    private long buyersId; // кому продали
+    private long sellersId; // кто продал
+    private long[] products; // список номеров книг которые продали
 
-    public Order(long id, long buyersId, long sellersId, long[] products) {
+
+    public Order(long id, long sellersId, long buyersId, long[] products) {
         this.id = id;
         this.buyersId = buyersId;
         this.sellersId = sellersId;
@@ -14,7 +15,6 @@ public class Order {
     }
 
     public long getId() {
-
         return id;
     }
 
@@ -23,7 +23,6 @@ public class Order {
     }
 
     public long getBuyersId() {
-
         return buyersId;
     }
 
@@ -47,3 +46,4 @@ public class Order {
         this.products = products;
     }
 }
+

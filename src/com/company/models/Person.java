@@ -1,9 +1,10 @@
 package com.company.models;
 
 public class Person {
-    private long id;
-    private String name;
-    private int age;
+    private long id; // uniq ID
+    private String name; // person name
+    private int age; // person age
+
 
     public Person(long id, String name, int age) {
         this.id = id;
