@@ -1,4 +1,4 @@
-package com.company.models;
+package com.company;
 
 public class Order {
     private long id;
@@ -12,11 +12,6 @@ public class Order {
         this.buyersId = buyersId;
         this.sellersId = sellersId;
         this.products = products;
-    }
-
-    public Order()
-    {
-
     }
 
     public long getId() {

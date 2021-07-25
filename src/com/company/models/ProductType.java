@@ -1,5 +1,4 @@
-package com.company.models;
-
+package com.company;
 
 public enum ProductType {
     MilkProducts, //Молочные продукты

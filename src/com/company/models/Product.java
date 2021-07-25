@@ -1,4 +1,4 @@
-package com.company.models;
+package com.company;
 
 public class Product {
     private long id;
@@ -13,11 +13,6 @@ public class Product {
         this.manufacturer = manufacturer;
         this.price = price;
         this.genre = genre;
-    }
-
-    public Products()
-    {
-        //Пустой конструктор для выделения памяти под переменные
     }
 
     public long getId() {

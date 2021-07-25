@@ -1,27 +1,21 @@
-package com.company.models;
+package com.company;
 
 public class ProductAdditional {
-
-    private ProductType type;
+    private ProductType genre;
     private int count;
-    private double price;
 
-    public ProductAdditional(){
 
-    }
-
-    public ProductAdditional(ProductType type, int count, double price) {
-        this.type = type;
+    public ProductAdditional(ProductType genre, int count) {
+        this.genre = genre;
         this.count = count;
-        this.price = price;
     }
 
-    public double getPrice() {
-        return price;
+    public ProductType getGenre() {
+        return genre;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setGenre(ProductType genre) {
+        this.genre = genre;
     }
 
     public int getCount() {
@@ -31,12 +25,5 @@ public class ProductAdditional {
     public void setCount(int count) {
         this.count = count;
     }
-
-    public ProductType getType() {
-        return type;
-    }
-
-    public void setType(ProductType type) {
-        this.type = type;
-    }
 }
+

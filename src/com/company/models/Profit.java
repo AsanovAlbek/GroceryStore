@@ -1,4 +1,4 @@
-package com.company.models;
+package com.company;
 
 public class Profit {
     private int count; // количество проданного товара
@@ -28,7 +28,7 @@ public class Profit {
     @Override
     public String toString() {
         return "Всего " + count+
-                "книг(и) на сумму" + price;
+                "продуктов (и) на сумму" + price;
     }
 }
 
